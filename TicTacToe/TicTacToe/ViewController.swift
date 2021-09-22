@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     
     var ticTacToe:gameBoard = gameBoard()
     
-    
     var currentPlayer : Player?{
         didSet{
-            currentPlayerLabel.text = "\(currentPlayer!)"
+            if currentPlayer != nil{
+                currentPlayerLabel.text = "\(currentPlayer!)"
+            }
         }
     }
     
@@ -34,29 +35,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomRight: UIButton!
     
     
-    
+    //MARK: Winner Actions
     var winner : Winner? {
         didSet{
             
-            let buttonList : [UIButton] = [topLeft, topMiddle, topRight, middleLeft, middleMiddle, middleRight, bottomLeft, bottomMiddle, bottomRight]
-            
-            for button in buttonList{
-                if button.isEnabled{
-                    button.isEnabled = false
-                }
+            if winner != nil{
                 
-            }//end of for loop
+                let buttonList : [UIButton] = [topLeft, topMiddle, topRight, middleLeft, middleMiddle, middleRight, bottomLeft, bottomMiddle, bottomRight]
+                
+                for button in buttonList{
+                    if button.isEnabled{
+                        button.isEnabled = false
+                    }
+                    
+                }//end of for loop
+                
+                currentPlayerLabel.text = "\(winner!)"
+                currentPlayerLabel.textColor = UIColor(red: 0.30, green: 0.76, blue: 0.25, alpha: 1.00)
+                
+                restartGame(5)
+                
+            }
             
-            currentPlayerLabel.text = "\(winner!)"
-            currentPlayerLabel.textColor = .green
             
         }//end of didSet()
     }//end of winner variable
     
-    //MARK: viewDidLoad()
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    //MARK: startGame()
+    func startGame(){
         
+        xArray = []
+        oArray = []
+        winner = nil
+        currentPlayer = nil
+        
+        currentPlayerLabel.textColor = .black
         
         let randomInt = Int.random(in: 1...1000)
         var even:Bool = false
@@ -81,14 +94,52 @@ class ViewController: UIViewController {
         
         for button in buttonList{
             button.setTitle("", for: .normal)
+            button.isEnabled = true
+            button.isHidden = false
             
         }
+        
+    }//End of startGame()
+    
+    
+    
+    //MARK: - viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        startGame()
+        
         
     }//end of viewDidLoad()
     
     
     
-    //MARK:- nextPlayer()
+    //MARK: restartGame()
+    func restartGame(_ totalTime: Int = 10){
+        
+        print("Timer Started")
+        var timeLeft = totalTime
+        
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            print("Time Left: \(timeLeft)")
+            timeLeft -= 1
+            
+            if timeLeft == 2{
+                self.currentPlayerLabel.text = "..."
+            }
+            
+            if timeLeft == 0 {
+                //This code runs when the timer is up
+                self.startGame()
+                timer.invalidate()
+            }
+            
+        }//End of Timer
+    }//End of restartTimer
+    
+    
+    
+    //MARK: - nextPlayer()
     func nextPlayer() {
         switch currentPlayer {
         case .x:
@@ -96,9 +147,12 @@ class ViewController: UIViewController {
         case .o:
             currentPlayer = .x
         case .none:
-            print("This should never happen. currentPlayer is empty...")
+            print("This should never happen, but currentPlayer is empty...")
         }//end of switch
     }//end of nextPlayer()
+    
+    
+    
     
     //MARK: savePlayerTurn()
     func savePlayerTurn(placeOnBoard spot: Int){
@@ -114,6 +168,7 @@ class ViewController: UIViewController {
         
         print("Total Array updated with play from \(currentPlayer!)\n")
     }
+    
     
     
     //MARK: checkForWin()
@@ -141,8 +196,8 @@ class ViewController: UIViewController {
                 
             }//end of root For loop
             
-        } else { //runs for player O
-            for combo in winningCombinations { 
+        } else if currentPlayer == .o{ //runs for player O
+            for combo in winningCombinations {
                 var matches = 0
                 
                 for spot in combo{
@@ -158,7 +213,16 @@ class ViewController: UIViewController {
                 
                 
             }//end of root For loop
+            
         }
+        
+        if (xArray.count + oArray.count >= 9) && winner == nil {
+            //MARK: Draw / Tie Condition
+            currentPlayerLabel.textColor = UIColor(red: 0.98, green: 0.33, blue: 0.33, alpha: 1.00)
+            
+            restartGame(5)
+        }
+        
         
         if winner == nil{
             nextPlayer()
@@ -167,7 +231,7 @@ class ViewController: UIViewController {
     
     
     
-    //MARK:- Button Functions
+    //MARK: - Button Functions
     @IBAction func topLeft(_ sender: Any) {
         ticTacToe.topLeft = currentPlayer
         topLeft.setTitle("\(currentPlayer!)", for: .normal)

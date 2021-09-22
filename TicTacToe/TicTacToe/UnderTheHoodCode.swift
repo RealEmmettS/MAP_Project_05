@@ -39,7 +39,17 @@ enum Winner{
 
 
 
-//For the TicTacToe Buttons
+
+
+
+
+
+
+
+
+
+
+//For the TicTacToe Buttons (the code below gives more option in Xcode Storyboard interface
 //https://spin.atomicobject.com/2017/07/18/swift-interface-builder/
 extension UIView {
     
