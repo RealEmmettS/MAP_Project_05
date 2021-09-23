@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +32,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -54,7 +53,7 @@
                                                 <rect key="frame" x="0.0" y="101.5" width="91.5" height="92"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -75,7 +74,7 @@
                                                 <rect key="frame" x="0.0" y="203.5" width="91.5" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -105,7 +104,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="92" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -126,7 +125,7 @@
                                                 <rect key="frame" x="0.0" y="101.5" width="92" height="92"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -147,7 +146,7 @@
                                                 <rect key="frame" x="0.0" y="203.5" width="92" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -177,7 +176,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -198,7 +197,7 @@
                                                 <rect key="frame" x="0.0" y="101.5" width="91.5" height="92"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -219,7 +218,7 @@
                                                 <rect key="frame" x="0.0" y="203.5" width="91.5" height="91.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="26"/>
                                                 <state key="normal" title="--">
-                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -280,9 +279,4 @@
             <point key="canvasLocation" x="18.840579710144929" y="77.678571428571431"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

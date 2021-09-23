@@ -96,6 +96,7 @@ class ViewController: UIViewController {
             button.setTitle("", for: .normal)
             button.isEnabled = true
             button.isHidden = false
+            button.titleLabel?.textColor = .black
             
         }
         
