@@ -33,6 +33,8 @@ var xArray = [Int]()
 var oArray = [Int]()
 var totalArray = [Int]()
 
+
+
 enum Winner{
     case x, o
 }

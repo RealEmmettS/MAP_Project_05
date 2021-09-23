@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
     //MARK: Variable / Outlet Setup
     @IBOutlet weak var currentPlayerLabel: UILabel!
     
@@ -19,6 +21,17 @@ class ViewController: UIViewController {
             if currentPlayer != nil{
                 currentPlayerLabel.text = "\(currentPlayer!)"
             }
+        }
+    }
+    
+    var xWinCount = 0 {
+        didSet{
+            playerXScoreLabel.text = "Player X Score: \(xWinCount)"
+        }
+    }
+    var oWinCount = 0 {
+        didSet{
+            playerOScoreLabel.text = "Player O Score: \(oWinCount)"
         }
     }
     
@@ -34,6 +47,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomMiddle: UIButton!
     @IBOutlet weak var bottomRight: UIButton!
     
+    @IBOutlet weak var playerXScoreLabel: UILabel!
+    @IBOutlet weak var playerOScoreLabel: UILabel!
     
     //MARK: Winner Actions
     var winner : Winner? {
@@ -53,6 +68,13 @@ class ViewController: UIViewController {
                 currentPlayerLabel.text = "\(winner!)"
                 currentPlayerLabel.textColor = UIColor(red: 0.30, green: 0.76, blue: 0.25, alpha: 1.00)
                 
+                //MARK: Win (Score) Counter
+                if winner == .x{
+                    xWinCount += 1
+                }else{
+                    oWinCount += 1
+                }
+                
                 restartGame(5)
                 
             }
@@ -68,6 +90,7 @@ class ViewController: UIViewController {
         oArray = []
         winner = nil
         currentPlayer = nil
+        
         
         currentPlayerLabel.textColor = .black
         
@@ -109,6 +132,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         startGame()
+        playerXScoreLabel.text = "Player X Score: 0"
+        playerOScoreLabel.text = "Player O Score: 0"
         
         
     }//end of viewDidLoad()
