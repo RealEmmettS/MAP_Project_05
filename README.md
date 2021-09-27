@@ -1,2 +1,2 @@
 # M.A.P. Project 05
-Tic Tac Toe
+Literally just tic-tac-toe
