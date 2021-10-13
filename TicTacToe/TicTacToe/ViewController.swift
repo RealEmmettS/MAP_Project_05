@@ -119,7 +119,9 @@ class ViewController: UIViewController {
             button.setTitle("", for: .normal)
             button.isEnabled = true
             button.isHidden = false
-            button.titleLabel?.textColor = .black
+            button.setTitleColor(.black, for: .normal)
+            button.borderWidth = 1
+            button.borderColor = .black
             
         }
         
@@ -217,6 +219,7 @@ class ViewController: UIViewController {
                 if matches == 3{
                     print("\n\nX wins!\n\n")
                     winner = .x
+                    showWinningCombo(combo: combo)
                 }
                 
                 
@@ -235,6 +238,7 @@ class ViewController: UIViewController {
                 if matches == 3{
                     print("\n\nO wins!\n\n")
                     winner = .o
+                    showWinningCombo(combo: combo)
                 }
                 
                 
@@ -253,6 +257,7 @@ class ViewController: UIViewController {
         if winner == nil{
             nextPlayer()
         }
+        
     }//end checkForWin()
     
     
@@ -329,6 +334,44 @@ class ViewController: UIViewController {
         savePlayerTurn(placeOnBoard: 9)
         checkForWin()
     }
+    
+    
+    
+    
+    
+    //MARK: showWinningCombo()
+    func showWinningCombo(combo:[Int]){
+        
+        //Set all buttons to light gray text
+        let buttonList : [UIButton] = [topLeft, topMiddle, topRight, middleLeft, middleMiddle, middleRight, bottomLeft, bottomMiddle, bottomRight]
+        
+        for button in buttonList{
+            button.setTitleColor(.lightGray, for: .normal)
+            button.borderColor = .lightGray
+        }
+        
+        //Highlight winning combo (change text and border color)
+        changeButtonForWin(topLeft, combo: combo, num: 1)
+        changeButtonForWin(topMiddle, combo: combo, num: 2)
+        changeButtonForWin(topRight, combo: combo, num: 3)
+        changeButtonForWin(middleLeft, combo: combo, num: 4)
+        changeButtonForWin(middleMiddle, combo: combo, num: 5)
+        changeButtonForWin(middleRight, combo: combo, num: 6)
+        changeButtonForWin(bottomLeft, combo: combo, num: 7)
+        changeButtonForWin(bottomMiddle, combo: combo, num: 8)
+        changeButtonForWin(bottomRight, combo: combo, num: 9)
+        
+    }
+    
+    
+    func changeButtonForWin( _ button:UIButton, combo:[Int], num: Int){
+        if combo.contains(num){
+            button.setTitleColor(UIColor(red: 0.30, green: 0.76, blue: 0.25, alpha: 1.00), for: .normal)
+            button.borderColor = UIColor(red: 0.30, green: 0.76, blue: 0.25, alpha: 1.00)
+            button.borderWidth = 5
+        }
+    }
+
     
     
 }
